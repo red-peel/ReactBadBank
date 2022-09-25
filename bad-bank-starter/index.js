@@ -1,4 +1,4 @@
-function Spa() {
+function SPA() {
   return (
     <HashRouter>
       <NavBar/>
@@ -11,12 +11,13 @@ function Spa() {
           <Route path="/withdraw/" component={Withdraw} />
           <Route path="/alldata/" component={AllData} />
         </div>
-      </UserContext.Provider>      
+      </UserContext.Provider>
+      <Footer/>      
     </HashRouter>
   );
 }
 
 ReactDOM.render(
-  <Spa/>,
+  <SPA/>,
   document.getElementById('root')
 );
