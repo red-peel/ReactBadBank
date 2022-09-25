@@ -1,7 +1,6 @@
 function NavBar(){
   const ctx = React.useContext(UserContext)
-  const testText = "hewwwwooo" 
-  console.log(ctx)
+  
   return(
     <>
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -27,9 +26,9 @@ function NavBar(){
             <a className="nav-link small font-weight-light font-italic" href="#/alldata/">All Data</a>
           </li>          
         </ul>
-        <span className="navbar-text">
-      {testText}
-        </span>
+        <a className="navbar-text" href="#/login/">
+      {ctx.current.username}
+        </a>
       </div>
     </nav>
     </>
