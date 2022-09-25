@@ -18,7 +18,7 @@ function Deposit() {
       bgcolor="dark primary"
       header="Deposit"
       status={status}
-      body={(true)?(
+      body={(ctx.current.isLoggedIn)?(
         <>
           <h3>Account Total: 123456</h3>
           <br />
