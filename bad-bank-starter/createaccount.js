@@ -11,6 +11,11 @@ function CreateAccount(){
       if (!field) {
         setStatus('Error: ' + label);
         setTimeout(() => setStatus(''),3000);
+        setSubmitShow(false);
+        return false;
+      }
+      if (field === password && password.length < 8) {
+        setStatus('Error: password must be at least 8 characters');
         return false;
       }
       return true;
@@ -32,8 +37,18 @@ function CreateAccount(){
     setShow(true);
   }
   
+  // PasswordCheck deprecated for validate
+  // function passwordCheck(password){
+  //   if (password.length > 8){
+      
+  //   }
+  // } 
+
+
+
   // TODO: Make submit check only true when all fields are valid
   // NOTE FOR TODO: use the nameOnChange, emailOnChange and passwordOnChange functions to complete TODO.
+  //EXTRA NOTE FOR TODO: try to use setSubmitShow on function validate(). use a an object that holds the field and a boolean, then pass all booleans to an && to setSubmitShow.
   function submitCheck(value, ){
     if (value == undefined || value == null || value == ""){
       setSubmitShow(false);
