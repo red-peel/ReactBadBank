@@ -2,8 +2,8 @@ function SPA() {
   return (
     <HashRouter>
       <UserContext.Provider value={{
-        users:[{name:'Elias',email:'eg@eliasgonzalez.com',password:'owowhatsthis',balance:9999999}],
-        current:{username:" Log In ",password:""}
+        users:[{name:'Elias',email:'eg',password:'as',balance:9999999}],
+        current:{username:" Log In ",password:"", isLoggedIn:false}
         }}>
         <NavBar/>
         <div className="container" style={{padding: "20px"}}>
