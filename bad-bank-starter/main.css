@@ -2,6 +2,10 @@
     width: 20px;
     height: 30px;
 }
-.container{
+#root{
     background-image: linear-gradient(to bottom right, tomato, firebrick, darkred);
+}
+footer{
+    background-color: white;
+    font-size: 30px;
 }
