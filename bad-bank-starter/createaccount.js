@@ -28,6 +28,8 @@ function CreateAccount(){
     if (!validate(password, 'password')) return;
     ctx.users.push({name,email,password,balance:100});
     setShow(false);
+    ctx.current.username = email;
+    ctx.curremt.password = password; 
   }    
 
   function clearForm(){
