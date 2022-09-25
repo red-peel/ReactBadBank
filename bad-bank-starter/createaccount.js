@@ -32,7 +32,9 @@ function CreateAccount(){
     setShow(true);
   }
   
-  function submitCheck(value){
+  // TODO: Make submit check only true when all fields are valid
+  // NOTE FOR TODO: use the nameOnChange, emailOnChange and passwordOnChange functions to complete TODO.
+  function submitCheck(value, ){
     if (value == undefined || value == null || value == ""){
       setSubmitShow(false);
     }
@@ -41,15 +43,15 @@ function CreateAccount(){
     }
   }
 
-  function nameOnChange(value){
+  function nameHandler(value){
     setName(value);
     submitCheck(value);
   }
-  function emailOnChange(value){
+  function emailHandler(value){
     setEmail(value);
     submitCheck(value);
   }
-  function passwordOnChange(value){
+  function passwordHandler(value){
     setPassword(value);
     submitCheck(value);
   }
@@ -62,11 +64,11 @@ function CreateAccount(){
       body={show ? (  
               <>
               Name<br/>
-              <input type="input" className="form-control" id="name" placeholder="Enter name" value={name} onChange={e => nameOnChange(e.currentTarget.value)} /><br/>
+              <input type="input" className="form-control" id="name" placeholder="Enter name" value={name} onChange={e => nameHandler(e.currentTarget.value)} /><br/>
               Email address<br/>
-              <input type="input" className="form-control" id="email" placeholder="Enter email" value={email} onChange={e => emailOnChange(e.currentTarget.value)}/><br/>
+              <input type="input" className="form-control" id="email" placeholder="Enter email" value={email} onChange={e => emailHandler(e.currentTarget.value)}/><br/>
               Password<br/>
-              <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => passwordOnChange(e.currentTarget.value)}/><br/>
+              <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => passwordHandler(e.currentTarget.value)}/><br/>
               {submitShow? <button type="submit" className="btn btn-light" onClick={handleCreate}>Create Account</button>: <a></a>}
               </>
             ):(
