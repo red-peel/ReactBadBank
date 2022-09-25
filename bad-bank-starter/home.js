@@ -3,8 +3,8 @@ function Home(){
     <Card
       bgcolor="dark"
       header="Home"
-      title="Welcome to The Baddest Bank"
-      text="Please add a new account or select withdraw or deposit"
+      title="Welcome to THE baddest bank"
+      text="Please add a new account and/or select withdraw or deposit from the options above."
       body={(<img src="bank.png" className="img-fluid" alt="Responsive image"/>)}
     />    
   );  
