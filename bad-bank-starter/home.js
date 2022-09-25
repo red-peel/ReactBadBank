@@ -1,10 +1,10 @@
 function Home(){
   return (
     <Card
-      txtcolor="black"
-      header="BadBank Landing Module"
-      title="Welcome to the bank"
-      text="You can move around using the navigation bar."
+      bgcolor="dark"
+      header="Home"
+      title="Welcome to The Baddest Bank"
+      text="Please add a new account or select withdraw or deposit"
       body={(<img src="bank.png" className="img-fluid" alt="Responsive image"/>)}
     />    
   );  
