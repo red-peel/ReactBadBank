@@ -5,7 +5,7 @@ function CreateAccount(){
   const [email, setEmail]       = React.useState('');
   const [password, setPassword] = React.useState('');
   const [submitShow, setSubmitShow] = React.useState(false);
-  const ctx = React.useContext(UserContext);  
+  const ctx = React.useContext(UserContext);
 
   function validate(field, label){
       if (!field) {
