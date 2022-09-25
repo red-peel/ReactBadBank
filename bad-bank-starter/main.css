@@ -2,3 +2,6 @@
     width: 20px;
     height: 30px;
 }
+.container{
+    background-image: linear-gradient(to bottom right, tomato, firebrick, darkred);
+}
