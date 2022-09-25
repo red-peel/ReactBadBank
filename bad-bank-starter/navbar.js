@@ -21,7 +21,7 @@ function NavBar(){
             <a className="nav-link" href="#/withdraw/">Withdraw</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#/alldata/">AllData</a>
+            <a className="nav-link small font-weight-light font-italic" href="#/alldata/">All Data</a>
           </li>          
         </ul>
       </div>
