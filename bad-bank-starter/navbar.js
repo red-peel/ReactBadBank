@@ -1,4 +1,7 @@
 function NavBar(){
+  const ctx = React.useContext(UserContext)
+  const testText = "hewwwwooo" 
+  console.log(ctx)
   return(
     <>
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -7,7 +10,7 @@ function NavBar(){
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav">
+        <ul className="navbar-nav mr-auto">
           <li className="nav-item">
             <a className="nav-link" href="#/CreateAccount/" >Create Account</a>
           </li>
@@ -24,6 +27,9 @@ function NavBar(){
             <a className="nav-link small font-weight-light font-italic" href="#/alldata/">All Data</a>
           </li>          
         </ul>
+        <span className="navbar-text">
+      {testText}
+        </span>
       </div>
     </nav>
     </>
