@@ -42,14 +42,16 @@ function Login() {
         setShow(false);
         ctx.current.username= email;
         ctx.current.password= password;
+        ctx.current.isLoggedIn= true;
     }
+
 
     function handleLogout() {
         ctx.current.username = "Log In"
         ctx.current.password = ""
         setShow(true)
+        ctx.current.isLoggedIn=false
     }
-
 
     function submitCheck(value,) {
         if (value == undefined || value == null || value == "") {
@@ -74,7 +76,7 @@ function Login() {
             bgcolor="dark primary"
             header="Log In"
             status={status}
-            body={show && (ctx.current.password == "")? (
+            body={show && !(ctx.current.isLoggedIn)? (
                 <>
                     Email address<br />
                     <input type="input" className="form-control" id="email" placeholder="Enter email" value={email} onChange={e => emailHandler(e.currentTarget.value)} /><br />
