@@ -5,21 +5,34 @@ function Login() {
     const [password, setPassword] = React.useState('');
     const [submitShow, setSubmitShow] = React.useState(false);
     const ctx = React.useContext(UserContext);
-    if (ctx.current.password === ""){
-        console.log("No password")
-    }
-
-
+    /* if (ctx.current.password === ""){
+        console.log("Current User has no password")
+    } */
+    /* Use valiadte to check wether input is a user */
     function validate(field, label) {
+        let isUserAuthenticated = false;
+        let isPasswordAuthenticated = false;
+        let isEmailAuthenticated = false;
         if (!field) {
             setStatus('Error: ' + label);
             setTimeout(() => setStatus(''), 3000);
             setSubmitShow(false);
             return false;
         }
-        
-
-        return true;
+        ctx.users.forEach(element => {
+            if (element.email == email){
+                isPasswordAuthenticated = true;
+            }
+        });
+        ctx.users.forEach(element => {
+            if (element.password == password){
+                isEmailAuthenticated = true;
+            } 
+        });
+        isUserAuthenticated = isEmailAuthenticated && isPasswordAuthenticated;
+        if (!isUserAuthenticated){setStatus("Username or password incorrect")}
+        console.log(isUserAuthenticated)
+        return isUserAuthenticated;
     }
 
     function handleLogin() {
@@ -66,7 +79,7 @@ function Login() {
                     Email address<br />
                     <input type="input" className="form-control" id="email" placeholder="Enter email" value={email} onChange={e => emailHandler(e.currentTarget.value)} /><br />
                     Password<br />
-                    <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => passwordHandler(e.currentTarget.value)} /><br />
+                    <input type="input" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => passwordHandler(e.currentTarget.value)} /><br />
                     {submitShow ? <button type="submit" className="btn btn-light" onClick={handleLogin}>Log In</button> : <a></a>}
                 </>
             ) : (
