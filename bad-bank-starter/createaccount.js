@@ -29,7 +29,7 @@ function CreateAccount(){
     ctx.users.push({name,email,password,balance:100});
     setShow(false);
     ctx.current.username = email;
-    ctx.curremt.password = password; 
+    ctx.current.password = password; 
   }    
 
   function clearForm(){

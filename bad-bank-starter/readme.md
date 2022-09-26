@@ -1,0 +1,3 @@
+In order to use this badbank you must download the folder called badbank and serve the file index.html either to a port on the local host or on a server. everything else should work as expected.
+
+There is a known error with logging into an account, switching to a different menu, and then logging out. The component will not refresh and show a login screen. In order to be able to log in again please change tabs and return to the login screen.
