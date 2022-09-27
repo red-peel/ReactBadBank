@@ -32,6 +32,7 @@ function Deposit() {
   }
 
   function addDeposit(amount) {
+    validateDepositAmount(amount);
     ctx.users.forEach(element => {
       //first look through emails from "database" for current logged in user
       if (element.email == ctx.current.username) {
