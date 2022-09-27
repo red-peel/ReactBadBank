@@ -3,56 +3,59 @@ function Deposit() {
   const [status, setStatus] = React.useState('');
   const [depositAmount, setDepositAmount] = React.useState('');
   const ctx = React.useContext(UserContext);
-  /* ctx.users.forEach(element => {
-    if (ctx.users[element].username == ctx.current.email) {
-      
-    }
-  }); */
   
   function validateDepositAmount(input) {
+    //change input to int
     let postParse = parseFloat(input);
-    /* TODO: add logic to validate depositAmount by using input parameter
-    if not a number, hide the submit button */
+    //check if number is number
     if (postParse === NaN || postParse === null || postParse === undefined) {
       setStatus('Error: Deposit amount must be a number');
       setTimeout(() => setStatus(''), 3000);
       setShow(false);
       return;
     }
+    //check if number is positive
     if (postParse <= 0){
       setStatus('Error: Deposit amount must be a positive number');
       setTimeout(() => setStatus(''), 3000);
       setShow(false)
       return;
     }
+    //set depositAmount and show submit button
     setDepositAmount(postParse);
     setShow(true)
   }
   
   function handleDepositChange(amount) {
+    //on change validate amount
     validateDepositAmount(amount);
   }
 
   function addDeposit(amount) {
     ctx.users.forEach(element => {
-      if (element.username == ctx.current.email) {
-        console.log("added amount")
+      //first look through emails from "database" for current logged in user
+      if (element.email == ctx.current.username) {
+        console.log("adding " + amount+" to " + element.email + " with current balance "+ ctx.current.workingBalance);
+        //show amount deposited to user
         setStatus('Deposit of $' + amount + ' was added to account');
         setTimeout(() => setStatus(''), 3000);
+        //change balance in context
         element.balance += amount;
+        //change workingBalance
         ctx.current.workingBalance += amount;
+        console.log("new balance :" + element.balance+ " new ctx balace :" + ctx.current.workingBalance);
       }
     });
   }
 
   function handleDeposit() {
-    /* depositAmount is handled here. first verify that depositAmount is valid, 
-    then add depositAmount to ctx.users.balance of ctx.current.username */
+    //on submit runs handleDeposit 
     ctx.users.forEach(element => {
       if (element.email === ctx.current.username) {
         console.log("Database username and CTX username match!")
-        console.log(depositAmount)
+        console.log("requested deposit amount:" + depositAmount)
         addDeposit(depositAmount);
+
       }
       
     });
