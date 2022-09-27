@@ -26,21 +26,28 @@ function Deposit() {
   
   function handleDepositChange(amount) {
     validateDepositAmount(amount);
-    console.log(depositAmount  + typeof depositAmount)
+  }
+
+  function addDeposit(amount) {
+    ctx.users.forEach(element => {
+      if (element.username == ctx.current.email) {
+        console.log("added amount")
+        element.balance += amount;
+      }
+    });
   }
 
   function handleDeposit() {
     /* depositAmount is handled here. first verify that depositAmount is valid, 
     then add depositAmount to ctx.users.balance of ctx.current.username */
     ctx.users.forEach(element => {
+      if (element.email === ctx.current.username) {
+        console.log("Database username and CTX username match!")
+        console.log(depositAmount)
+        addDeposit(depositAmount);
+      }
       
-    if (element.email == ctx.current.username) {
-      console.log("Database username and CTX username match!")
-      /* if (depositAmount > 0 && (typeof depositAmount) === 'number'){
-        console.log("Valid Number!")
-      } */
-    }
-  });
+    });
   }
 
 
