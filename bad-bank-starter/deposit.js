@@ -13,15 +13,20 @@ function Deposit() {
     let postParse = parseFloat(input);
     /* TODO: add logic to validate depositAmount by using input parameter
     if not a number, hide the submit button */
-    if (postParse === NaN){
+    if (postParse === NaN || postParse === null || postParse === undefined) {
       setStatus('Error: Deposit amount must be a number');
+      setTimeout(() => setStatus(''), 3000);
+      setShow(false);
       return;
     }
-    if (postParse < 0){
+    if (postParse <= 0){
       setStatus('Error: Deposit amount must be a positive number');
+      setTimeout(() => setStatus(''), 3000);
+      setShow(false)
       return;
     }
     setDepositAmount(postParse);
+    setShow(true)
   }
   
   function handleDepositChange(amount) {
@@ -32,7 +37,10 @@ function Deposit() {
     ctx.users.forEach(element => {
       if (element.username == ctx.current.email) {
         console.log("added amount")
+        setStatus('Deposit of $' + amount + ' was added to account');
+        setTimeout(() => setStatus(''), 3000);
         element.balance += amount;
+        ctx.current.workingBalance += amount;
       }
     });
   }
@@ -60,12 +68,12 @@ function Deposit() {
       status={status}
       body={(ctx.current.isLoggedIn)?(
         <>
-          <h3>Account Total: </h3>
+          <h3>Account Total: {ctx.current.workingBalance}</h3>
           <br />
           <h4>Deposit Amount</h4>
           <input type="number" className="form-control" id="depositAmount" placeholder="Enter Amount for Deposit" value={depositAmount} onChange={e => handleDepositChange(e.currentTarget.value)}/>
           <br />
-          <button type="submit" className="btn btn-light" onClick={handleDeposit}>Confirm</button>
+          {(show)?(<button type="submit" className="btn btn-light" onClick={handleDeposit}>Confirm</button>):(<></>)}
         </>
       ):(<h1>Please log in to deposit.</h1>)
     }
