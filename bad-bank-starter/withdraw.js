@@ -9,14 +9,20 @@ function Withdraw() {
     let postParse = parseFloat(input);
     //check if number is number
     if (postParse === NaN || postParse === null || postParse === undefined) {
-      setStatus('Error: Withdrawal amount must be a number');
+      setStatus('Error: Amount must be a number');
       setTimeout(() => setStatus(''), 3000);
       setShow(false);
       return;
     }
     //check if number is positive
     if (postParse <= 0){
-      setStatus('Error: Deposit amount must be a positive number');
+      setStatus('Error: Amount must be a positive number');
+      setTimeout(() => setStatus(''), 3000);
+      setShow(false)
+      return;
+    }
+    if (postParse > ctx.current.workingBalance){
+      setStatus('Error: Withdrawal must not be more than ' + ctx.current.workingBalance);
       setTimeout(() => setStatus(''), 3000);
       setShow(false)
       return;
@@ -80,7 +86,7 @@ function Withdraw() {
           <br />
           {(show)?(<button type="submit" className="btn btn-light" onClick={handleWithdrawal}>Confirm</button>):(<></>)}
         </>
-      ):(<h1>Please log in to Withdraw.</h1>)
+      ):(<h1>Please log in to withdraw.</h1>)
     }
     />
   )
