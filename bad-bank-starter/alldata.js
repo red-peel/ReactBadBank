@@ -25,7 +25,7 @@ function AllData(){
   return (
     <div>
       <Card
-            bgcolor="dark primary"
+            bgcolor="card text-dark bg-white"
             header="Current User"
             status={"Password: " + ctx.current.password}
             body={"Username: "+ctx.current.username}
