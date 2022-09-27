@@ -31,12 +31,12 @@ function Login() {
         });
         isUserAuthenticated = isEmailAuthenticated && isPasswordAuthenticated;
         if (!isUserAuthenticated){setStatus("Username or password incorrect")}
-        console.log(isUserAuthenticated)
+        console.log("login is "+ isUserAuthenticated)
         return isUserAuthenticated;
     }
 
     function handleLogin() {
-        console.log(email, password);
+        console.log("logged in " + email + " with password " + password);
         if (!validate(email, 'email')) return;
         if (!validate(password, 'password')) return;
         setShow(false);
@@ -58,7 +58,7 @@ function Login() {
         ctx.current.isLoggedIn=false
     }
 
-    function submitCheck(value,) {
+    function submitCheck(value) {
         if (value == undefined || value == null || value == "") {
             setSubmitShow(false);
         }
@@ -92,7 +92,10 @@ function Login() {
             ) : (
                 <>
                     <h5>Logged in as {ctx.current.username}</h5>
-                    <button type="submit" className="btn btn-light" onClick={handleLogout}> Log Out</button>
+                    
+                    <button type="submit" className="btn btn-light" onClick={handleLogout}> Log Out </button>
+                    <br></br>
+                    <a> Once clicked logout please change tabs and return to refresh logout.</a>
                 </>
             )}
         />
