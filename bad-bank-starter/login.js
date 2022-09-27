@@ -95,7 +95,7 @@ function Login() {
                     
                     <button type="submit" className="btn btn-light" onClick={handleLogout}> Log Out </button>
                     <br></br>
-                    <a> Once clicked logout please change tabs and return to refresh logout.</a>
+                    <a> Once logout is clicked please change tabs and return to refresh logout.</a>
                 </>
             )}
         />
