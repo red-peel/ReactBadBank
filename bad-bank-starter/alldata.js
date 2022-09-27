@@ -17,7 +17,7 @@ function AllData(){
               bgcolor="card text-white bg-danger mb-3"
               header="All Data in Storage"
               status=""
-              body={JSON.stringify(ctx)}
+              body={JSON.stringify(ctx.users)}
           />}
         />
       </div>
