@@ -42,6 +42,11 @@ function Login() {
         setShow(false);
         ctx.current.username= email;
         ctx.current.password= password;
+        ctx.users.forEach(element => {
+            if (element.email == email){
+                ctx.current.workingBalance = element.balance;
+            }
+        });
         ctx.current.isLoggedIn= true;
     }
 
